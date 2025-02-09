@@ -1,10 +1,14 @@
 services:
   - type: web
     name: sirtheprogrammer-bot
-    env: node
+    runtime: node
+    region: singapore
+    plan: free
     buildCommand: npm install
     startCommand: npm start
     envVars:
+      - key: NODE_ENV
+        value: production
       - key: BOT_NAME
         value: SirTheProgrammer Bot
       - key: OWNER_NAME
@@ -14,11 +18,10 @@ services:
       - key: PREFIX
         value: .
       - key: AUTO_READ
-        value: true
+        value: "true"
       - key: AUTO_DOWNLOAD_STATUS
-        value: true
+        value: "true"
     autoDeploy: true
-    plan: free
     healthCheckPath: /
     disk:
       name: auth-data

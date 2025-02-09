@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: sirtheprogrammer-bot
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: BOT_NAME
+        value: SirTheProgrammer Bot
+      - key: OWNER_NAME
+        value: Baraka Kibiki
+      - key: OWNER_NUMBER
+        value: 255617200014
+      - key: PREFIX
+        value: .
+      - key: AUTO_READ
+        value: true
+      - key: AUTO_DOWNLOAD_STATUS
+        value: true
+    autoDeploy: true
+    plan: free
+    healthCheckPath: /
+    disk:
+      name: auth-data
+      mountPath: /app/auth_info
+      sizeGB: 1 
